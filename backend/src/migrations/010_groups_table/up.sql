@@ -1,0 +1,5 @@
+CREATE TABLE IF NOT EXISTS groups (
+    groups_id SERIAL PRIMARY KEY,
+    class_id INTEGER NOT NULL REFERENCES class (class_id) ON DELETE CASCADE ON UPDATE CASCADE,
+    group_name VARCHAR(255) NOT NULL
+);

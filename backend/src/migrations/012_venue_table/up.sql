@@ -1,0 +1,4 @@
+CREATE TABLE IF NOT EXISTS venue (
+    venue_id SERIAL PRIMARY KEY,
+    coordinates_id INTEGER NOT NULL UNIQUE REFERENCES coordinates (coordinates_id) ON DELETE SET NULL ON UPDATE CASCADE
+);

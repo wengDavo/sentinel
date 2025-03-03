@@ -1,0 +1,6 @@
+CREATE TABLE IF NOT EXISTS class (
+    class_id SERIAL PRIMARY KEY,
+    department_id INTEGER REFERENCES department (department_id) ON DELETE CASCADE ON UPDATE CASCADE,
+    level_id INTEGER REFERENCES level (level_id) ON DELETE SET NULL ON UPDATE CASCADE,
+    class_name VARCHAR(255) NOT NULL
+);

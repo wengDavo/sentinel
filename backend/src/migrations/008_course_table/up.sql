@@ -1,0 +1,6 @@
+CREATE TABLE IF NOT EXISTS course (
+    course_id SERIAL PRIMARY KEY,
+    course_name VARCHAR(255) NOT NULL UNIQUE,
+    course_code VARCHAR(50) UNIQUE,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
