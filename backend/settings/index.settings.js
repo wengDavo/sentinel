@@ -1,8 +1,10 @@
-import development from "./development.settings.js";
-import production from "./production.setting.js";
 import dotenv from "dotenv";
 import path from "path";
 import { fileURLToPath } from "url";
+
+import development from "./development.settings.js";
+import production from "./production.setting.js";
+import test from "./test.settings.js";
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -16,7 +18,8 @@ const ENV_VAR = process.env;
 
 const settings = {
 	development,
-	production
+	production,
+	test
 };
 
 export default { ...settings[NODE_ENV], ENV_VAR };

@@ -7,19 +7,25 @@
     "dev": "NODE_ENV=development node --watch-path=./src ./src/index.js",
     "start": "NODE_ENV=production node --watch-path=./src ./src/index.js",
     "migrate": "node src/config/migrations.config.js",
-    "migrate:rollback": "node src/config/migrations.config.js --rollback"
+    "migrate:rollback": "node src/config/migrations.config.js --rollback",
+	"test": "NODE_ENV=test mocha test/unit"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "description": "",
   "dependencies": {
+    "bcrypt": "^5.1.1",
+    "chai": "^5.2.0",
     "cors": "^2.8.5",
     "dotenv": "^16.4.7",
     "express": "^4.21.2",
     "helmet": "^8.0.0",
+    "jsonwebtoken": "^9.0.2",
+    "mocha": "^11.1.0",
     "morgan": "^1.10.0",
     "pg": "^8.13.3",
+    "supertest": "^7.0.0",
     "umzug": "^3.8.2",
     "winston": "^3.17.0"
   }

@@ -16,8 +16,22 @@ app.use(helmet());
 app.use(httpLogger);
 
 app.get("/", async (req, res) => {
-	res.status(200).json({ message: "The server is running well" });
+	try {
+		res.status(200).json({ message: "The server is running" });
+	} catch (error) {
+		res.status(500).json({ error: error.message })
+	}
 });
+
+app.all("/", (req, res) => {
+	res.status(405).json({ error: new Error("Wrong method") })
+});
+
+app.all("*", (req, res) => {
+	res.status(404).json({
+		error: new Error("not a valid route")
+	})
+})
 
 const PORT = settings.PORT ?? 8080;
 app.listen(PORT, async () => {
@@ -25,3 +39,4 @@ app.listen(PORT, async () => {
 	logger.info(`API Base URL: ${settings.apiBaseUrl}`);
 });
 
+export default app;
