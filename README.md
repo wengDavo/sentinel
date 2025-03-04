@@ -29,13 +29,16 @@ Sentinel is a scheduling assistant designed to help timetable officers prevent c
 3. Set up the environment variables:
    - Create a folder `env/` at the project root.
    - Inside `env/`, create environment files for different environments:
-     - `env/.env.development`
-     - `env/.env.production`
+     - `.env.development`
+     - `.env.production`
+     - `.env.test`
    - Add the necessary configurations (example for development):
      ```ini
      NODE_ENV=development
-     DATABASE_URL=postgresql://postgres@127.0.0.1:5432/sentinel
+     DATABASE_URL=postgresql://[db_user]:[db_password]@127.0.0.1:5432/[db_name]
      PORT=8080
+     CORS_ORIGIN=
+     TOKEN_SECRET=
      ```
 4. Run database migrations:
    ```sh
@@ -63,8 +66,7 @@ NODE_ENV=production npm start
 | Method | Endpoint     | Description              |
 |--------|-------------|--------------------------|
 | GET    | `/`         | Health check             |
-| POST   | `/schedules` | Add a new schedule       |
-| GET    | `/conflicts` | Get detected conflicts   |
+|        | `api/v1/auth`| Auth routes       |
 
 ## Contribution
 

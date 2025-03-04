@@ -1,9 +1,10 @@
 import pg from 'pg';
 const { Pool } = pg;
 import { logger } from './logger.config.js';
+import settings from '../../settings/index.js';
 
 const databaseConfig = {
-	connectionString: process.env.DATABASE_URL,
+	connectionString: settings.DATABASE_URL,
 };
 
 export const pool = new Pool(databaseConfig);

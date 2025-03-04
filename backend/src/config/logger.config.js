@@ -1,5 +1,5 @@
 import winston from 'winston';
-import settings from '../../settings/index.settings.js';
+import settings from '../../settings/index.js';
 import morgan from 'morgan';
 
 const { combine, timestamp, json, printf, errors, colorize } = winston.format;

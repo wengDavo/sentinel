@@ -1,9 +1,12 @@
 import express from "express";
 import cors from "cors";
 import helmet from "helmet";
-import settings from "../settings/index.settings.js";
+import cookieParser from "cookie-parser";
+import settings from "../settings/index.js";
 import { logger, httpLogger } from "./config/logger.config.js";
 import { establishDbConnection } from "./config/db.config.js";
+
+import AuthRouter from "./routes/auth.routes.js";
 
 const app = express();
 establishDbConnection();
@@ -14,6 +17,9 @@ app.use(cors({
 }))
 app.use(helmet());
 app.use(httpLogger);
+app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
+app.use(cookieParser())
 
 app.get("/", async (req, res) => {
 	try {
@@ -23,19 +29,21 @@ app.get("/", async (req, res) => {
 	}
 });
 
-app.all("/", (req, res) => {
-	res.status(405).json({ error: new Error("Wrong method") })
+app.use("/api/v1/auth", AuthRouter);
+
+app.use("/", (req, res) => {
+	res.status(405).json({ message: "WRONG METHOD" })
 });
 
 app.all("*", (req, res) => {
 	res.status(404).json({
-		error: new Error("not a valid route")
+		message: "NOT A VALID ROUTE"
 	})
 })
 
 const PORT = settings.PORT ?? 8080;
 app.listen(PORT, async () => {
-	logger.info('Running in:', process.env.NODE_ENV);
+	logger.info(`Running in: ${settings.NODE_ENV}`);
 	logger.info(`API Base URL: ${settings.apiBaseUrl}`);
 });
 

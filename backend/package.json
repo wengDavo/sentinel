@@ -6,9 +6,10 @@
   "scripts": {
     "dev": "NODE_ENV=development node --watch-path=./src ./src/index.js",
     "start": "NODE_ENV=production node --watch-path=./src ./src/index.js",
+    "test": "NODE_ENV=test mocha test/unit",
     "migrate": "node src/config/migrations.config.js",
     "migrate:rollback": "node src/config/migrations.config.js --rollback",
-	"test": "NODE_ENV=test mocha test/unit"
+    "migrate:seed": "node src/config/migrations.config.js --seed"
   },
   "keywords": [],
   "author": "",
@@ -17,6 +18,7 @@
   "dependencies": {
     "bcrypt": "^5.1.1",
     "chai": "^5.2.0",
+    "cookie-parser": "^1.4.7",
     "cors": "^2.8.5",
     "dotenv": "^16.4.7",
     "express": "^4.21.2",
