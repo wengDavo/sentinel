@@ -23,7 +23,7 @@ export function SideBar() {
 	];
 
 	return (
-		<aside className="border-r p-4 h-screen max-w-full">
+		<aside className="border-r border-abs-white-10 p-4 h-screen max-w-full">
 			{/* Date Picker */}
 			<div className="">
 				<DayPicker
