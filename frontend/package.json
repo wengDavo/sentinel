@@ -1,0 +1,29 @@
+{
+  "name": "frontend",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev --turbopack",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint"
+  },
+  "dependencies": {
+    "@aldabil/react-scheduler": "^3.0.5",
+    "@emotion/styled": "^11.14.0",
+    "@mui/material": "^6.4.7",
+    "@reduxjs/toolkit": "^2.6.1",
+    "date-fns": "^4.1.0",
+    "material-symbols": "^0.29.0",
+    "next": "15.2.1",
+    "react": "^19.0.0",
+    "react-big-calendar": "^1.18.0",
+    "react-day-picker": "^9.5.1",
+    "react-dom": "^19.0.0",
+    "react-redux": "^9.2.0"
+  },
+  "devDependencies": {
+    "@tailwindcss/postcss": "^4",
+    "tailwindcss": "^4"
+  }
+}
